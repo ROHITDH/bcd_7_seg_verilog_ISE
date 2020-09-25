@@ -1,0 +1,11 @@
+xst -intstyle ise -ifn "F:/Xilinx/14.7/ISE_DS/bcd_7_seg/bcd_7_seg.xst" -ofn "F:/Xilinx/14.7/ISE_DS/bcd_7_seg/bcd_7_seg.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-tqg144-2 bcd_7_seg.ngc bcd_7_seg.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bcd_7_seg_map.ncd bcd_7_seg.ngd bcd_7_seg.pcf 
+par -w -intstyle ise -ol high -mt off bcd_7_seg_map.ncd bcd_7_seg.ncd bcd_7_seg.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml bcd_7_seg.twx bcd_7_seg.ncd -o bcd_7_seg.twr bcd_7_seg.pcf 
+bitgen -intstyle ise -f bcd_7_seg.ut bcd_7_seg.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc bcd_7seg.ucf -p xc6slx9-tqg144-2 bcd_7_seg.ngc bcd_7_seg.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o bcd_7_seg_map.ncd bcd_7_seg.ngd bcd_7_seg.pcf 
+par -w -intstyle ise -ol high -mt off bcd_7_seg_map.ncd bcd_7_seg.ncd bcd_7_seg.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml bcd_7_seg.twx bcd_7_seg.ncd -o bcd_7_seg.twr bcd_7_seg.pcf -ucf bcd_7seg.ucf 
+bitgen -intstyle ise -f bcd_7_seg.ut bcd_7_seg.ncd 
